@@ -21,7 +21,6 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<ProductResponseDto> createProduct(@Valid @RequestBody ProductRequestDto request) {
         ProductResponseDto response = productService.createProduct(request);
-//      sunny - 이렇게 만들면 구조가 어떻게 다르지 ... ㅇ_ㅇ? 강의 에서는 달랐음 참고해서 비교해보기
         return ResponseEntity.created(URI.create("/api/products/" + response.getId())).body(response);
     }
 
